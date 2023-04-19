@@ -1,18 +1,74 @@
-var secondItem = document.querySelector('.list-group-item:nth-child(2)');
-secondItem.style.backgroundColor = 'green'
+var itemList = document.querySelector('#items');
 
-var thirdItem = document.querySelector('.list-group-item:nth-child(3)');
-thirdItem.style.display = 'none'
+//parentNode
+console.log(itemList.parentNode);
+itemList.parentNode.style.backgroundColor = '#f4f4f4'
+console.log(itemList.parentNode.parentNode);
 
-var queryAll = document.querySelectorAll('.list-group-item');
-queryAll[1].style.color = 'red'
+//parentElement
+console.log(itemList.parentElement);
+itemList.parentNode.style.backgroundColor = '#f4f4f4'
+console.log(itemList.parentElement.parentElement);
 
-var odd = document.querySelectorAll('li:nth-child(odd)');
+//childNodes
 
-for(var i=0;i<odd.length;i++)
-{
-    odd[i].style.backgroundColor = '#f4f4f4'
-}
+
+console.log(itemList.childNodes);
+console.log(itemList.children)
+itemList.children[1].style.backgroundColor = 'red'
+
+//firstchild
+console.log(itemList.firstChild)
+itemList.firstElementChild.textContent = 'HELLO 1'
+
+//lastchild
+console.log(itemList.lastChild)
+itemList.lastElementChild.textContent = 'HELLO 4'
+
+//siblings
+console.log(itemList.nextSibling);
+console.log(itemList.nextElementSibling)
+
+//previoussibling
+
+console.log(itemList.previousSibling);
+console.log(itemList.previousElementSibling);
+itemList.previousElementSibling.style.color = 'green'
+
+//createElement
+var newDiv  =  document.createElement('div');
+newDiv.className = 'hello';
+newDiv.id = 'hello1';
+
+newDiv.setAttribute('title', 'hello Div')
+
+var newDivText = document.createTextNode("Hello world")
+newDiv.appendChild(newDivText)
+var container =  document.querySelector('header .container')
+var h1 = document.querySelector('header h1');
+console.log(newDiv);
+container.insertBefore(newDiv,h1)
+
+var menu = document.getElementById('items');
+let li = document.createElement('p');
+li.textContent = 'Hello world'
+menu.insertBefore(li,menu.firstElementChild)
+
+// var secondItem = document.querySelector('.list-group-item:nth-child(2)');
+// secondItem.style.backgroundColor = 'green'
+
+// var thirdItem = document.querySelector('.list-group-item:nth-child(3)');
+// thirdItem.style.display = 'none'
+
+// var queryAll = document.querySelectorAll('.list-group-item');
+// queryAll[1].style.color = 'red'
+
+// var odd = document.querySelectorAll('li:nth-child(odd)');
+
+// for(var i=0;i<odd.length;i++)
+// {
+//     odd[i].style.backgroundColor = '#f4f4f4'
+// }
 
 
 // var items = document.getElementsByClassName('list-group-item');
