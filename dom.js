@@ -1,3 +1,10 @@
+var items = document.getElementsByClassName('list-group-item');
+items[2].style.backgroundColor = 'green'
+
+for(var i=0;i<items.length;i++)
+{
+    items[i].style.fontWeight = 'bold'
+}
 // console.dir(document)
 
 // console.log(document.URL);
@@ -16,14 +23,15 @@
 //console.log(document.getElementById('header-title'))
 
 
-var headerTitle = document.getElementById('header-title')
-var header = document.getElementById('main-header')
+// var headerTitle = document.getElementById('header-title')
+// var header = document.getElementById('main-header')
 
-// headerTitle.textContent = 'HELLO'
+// // headerTitle.textContent = 'HELLO'
 
-header.style.borderBottom = 'solid 3px #000';
+// header.style.borderBottom = 'solid 3px #000';
 
-var items = document.getElementsByClassName('title');
-items[0].style.fontWeight = 'bold'
-items[0].style.color = 'green'
+// var items = document.getElementsByClassName('title');
+// items[0].style.fontWeight = 'bold'
+// items[0].style.color = 'green'
+
 
