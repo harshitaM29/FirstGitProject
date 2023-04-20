@@ -6,11 +6,12 @@ function test()
     var dt = document.getElementById('date').value;
     var tm = document.getElementById('time').value;
 
-    localStorage.setItem('name',name)
-    localStorage.setItem('email',em)
-    localStorage.setItem('phone',ph)
-    localStorage.setItem('date',dt)
-    localStorage.setItem('time',tm)
+    let myObj = {name,em,ph,dt,tm};
+
+    let myObj_serialized = JSON.stringify(myObj)
+
+    localStorage.setItem('myobj',myObj_serialized)
+    
 
 
 }
