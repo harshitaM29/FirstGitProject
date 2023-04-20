@@ -66,7 +66,8 @@ function filterItems(e)
     var items = itemList.getElementsByTagName('li');
     Array.from(items).forEach(function(item ) {
         var itemName = item.firstChild.textContent;
-        var itemSecond = item.childNodes[0].textContent;
+        var itemSecond = item.childNodes[1].textContent;
+        
         if(itemName.toLowerCase().indexOf(text) != -1 || itemSecond.toLowerCase().indexOf(text) != -1)
         {
             item.style.display = 'block';
