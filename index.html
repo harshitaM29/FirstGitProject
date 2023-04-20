@@ -64,7 +64,7 @@
     
     <body>
        <div class="container">
-        <form action="#" onsubmit="test()"> 
+        <form action="#" onsubmit="test(event)" id="form"> 
             <h2 class="display-9">Book a Call</h2>
            <p class="lead">Book a call slot and our representative will call you within 1hr of selected time.</p><hr>
          <label class="form-label">Name:
@@ -91,7 +91,7 @@
            
            <input type="time" name="time" value="11:00" class="form-control-select" id="time">
           
-           <input type="submit" value="GET A CALL" class="form-control">
+           <input type="submit" value="GET A CALL" class="form-control" id="submit" formtarget="_self">
         </div>
     </div>
         </form>
