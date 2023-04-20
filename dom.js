@@ -1,116 +1,54 @@
-var itemList = document.querySelector('#items');
+var form = document.getElementById('addForm');
+var  itemList = document.getElementById('items');
 
-//parentNode
-console.log(itemList.parentNode);
-itemList.parentNode.style.backgroundColor = '#f4f4f4'
-console.log(itemList.parentNode.parentNode);
+// form submit event
+form.addEventListener('submit', addItem);
+//delete event
 
-//parentElement
-console.log(itemList.parentElement);
-itemList.parentNode.style.backgroundColor = '#f4f4f4'
-console.log(itemList.parentElement.parentElement);
-
-//childNodes
+itemList.addEventListener('click', removeItem);
 
 
-console.log(itemList.childNodes);
-console.log(itemList.children)
-itemList.children[1].style.backgroundColor = 'red'
 
-//firstchild
-console.log(itemList.firstChild)
-itemList.firstElementChild.textContent = 'HELLO 1'
+function addItem(e) {
+    e.preventDefault();
+    var newItem = document.getElementById('item').value;
 
-//lastchild
-console.log(itemList.lastChild)
-itemList.lastElementChild.textContent = 'HELLO 4'
+    //create new li element
+    var li = document.createElement('li');
 
-//siblings
-console.log(itemList.nextSibling);
-console.log(itemList.nextElementSibling)
+    li.className = 'list-group-item';
+    li.appendChild(document.createTextNode(newItem));
+    
+    var edit = document.createElement('button');
+    edit.className = 'btn btn-primary btn-sm float-right edit';
+    edit.appendChild(document.createTextNode('E'));
+    li.appendChild(edit);
+    //create delete button element
+    var delButton = document.createElement('button');
 
-//previoussibling
+    //add classes to del button
+    delButton.className = 'btn btn-danger btn-sm float-right delete';
+    delButton.appendChild(document.createTextNode('X'));
+    li.appendChild(delButton);
+    itemList.appendChild(li);
 
-console.log(itemList.previousSibling);
-console.log(itemList.previousElementSibling);
-itemList.previousElementSibling.style.color = 'green'
-
-//createElement
-var newDiv  =  document.createElement('div');
-newDiv.className = 'hello';
-newDiv.id = 'hello1';
-
-newDiv.setAttribute('title', 'hello Div')
-
-var newDivText = document.createTextNode("Hello world")
-newDiv.appendChild(newDivText)
-var container =  document.querySelector('header .container')
-var h1 = document.querySelector('header h1');
-console.log(newDiv);
-container.insertBefore(newDiv,h1)
-
-var menu = document.getElementById('items');
-let li = document.createElement('p');
-li.textContent = 'Hello world'
-menu.insertBefore(li,menu.firstElementChild)
-
-// var secondItem = document.querySelector('.list-group-item:nth-child(2)');
-// secondItem.style.backgroundColor = 'green'
-
-// var thirdItem = document.querySelector('.list-group-item:nth-child(3)');
-// thirdItem.style.display = 'none'
-
-// var queryAll = document.querySelectorAll('.list-group-item');
-// queryAll[1].style.color = 'red'
-
-// var odd = document.querySelectorAll('li:nth-child(odd)');
-
-// for(var i=0;i<odd.length;i++)
-// {
-//     odd[i].style.backgroundColor = '#f4f4f4'
-// }
+  
 
 
-// var items = document.getElementsByClassName('list-group-item');
-// items[2].style.backgroundColor = 'green'
 
-// for(var i=0;i<items.length;i++)
-// {
-//     items[i].style.fontWeight = 'bold'
-// }
-// var li = document.getElementsByTagName('li');
+}
 
-// for(var i=0;i<li.length;i++)
-// {
-//     li[i].style.fontWeight = 'bold'
-// }
-// console.dir(document)
+function removeItem(e)
+{
+    if(e.target.classList.contains('delete'))
+    {
+        if(confirm('Are you Sure'))
+        {
+            var li = e.target.parentElement;
+            itemList.removeChild(li);
+        }
+    }
+}
 
-// console.log(document.URL);
-// console.log(document.title);
-// document.title = 123;
-
-// console.log(document.doctype)
-// console.log(document.head)
-// console.log(document.body)
-// console.log(document.all)
-// document.all[10].textContent = "HELLO";
-// console.log(document.forms[0])
-// console.log(document.links)
-
-
-//console.log(document.getElementById('header-title'))
-
-
-// var headerTitle = document.getElementById('header-title')
-// var header = document.getElementById('main-header')
-
-// // headerTitle.textContent = 'HELLO'
-
-// header.style.borderBottom = 'solid 3px #000';
-
-// var items = document.getElementsByClassName('title');
-// items[0].style.fontWeight = 'bold'
-// items[0].style.color = 'green'
 
 
