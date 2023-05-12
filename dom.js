@@ -30,6 +30,18 @@ function test(event)
     
     // showOnScreen(myObj);
 }
+window.addEventListener("DOMContentLoaded", () => {
+    axios.get("https://crudcrud.com/api/3ea7499aeb1340a39e21f98d1594cbdb/appointmendDetails")
+    .then((response) => {
+        for(var i=0;i<response.data.length; i++){
+            showOnScreen(response.data[i]);
+        }   
+        // console.log(response);
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+})
 function showOnScreen(myObj)
 {
     // let myObj_dserialized = JSON.parse(localStorage.getItem('myObj'));
