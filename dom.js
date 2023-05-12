@@ -56,21 +56,24 @@ function showOnScreen(myObj)
     // para.style.fontWeight = 'bold'
      
     
-   li.textContent = "Name = " + myObj.name + " Email = " + myObj.em + " Phone = " + myObj.ph;
+   li.textContent =  "Name = " + myObj.name + " Email = " + myObj.em + " Phone = " + myObj.ph;
     li.style.fontWeight = 'bold'
     ul.append(li);
     var btn = document.createElement('button');
     btn.className = 'btn btn-primary btn=sm delete'
     btn.textContent = 'DELETE'
-    // btn.addEventListener("click", function(e){
-    //     if(confirm('are you sure'))
-    //             {
-    //                 localStorage.clear();
-    //                 var li = e.target.parentElement;
-    //                 var item = document.getElementById('list');
-    //                 item.removeChild(li);
-    //             }
-    // });
+    btn.addEventListener("click", function(e){
+        if(confirm('are you sure'))
+                {
+                    
+                    axios.delete(`https://crudcrud.com/api/3ea7499aeb1340a39e21f98d1594cbdb/appointmendDetails/${myObj._id}`)
+                    .then((res) => console.log(res))
+                    .catch((err) => console.log(err)) 
+                    var li = e.target.parentElement;
+                    var item = document.getElementById('list');
+                    item.removeChild(li);
+                }
+    });
     li.append(" ",btn)
     //edit button
     var btnEdit = document.createElement('button');
