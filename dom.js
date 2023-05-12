@@ -4,10 +4,8 @@ function test(event)
     var name = document.getElementById('name').value;
     var em = document.getElementById('email').value;
     var ph = document.getElementById('phone').value;
-    var dt = document.getElementById('date').value;
-    var tm = document.getElementById('time').value;
-
-    let myObj = {name,em,ph,dt,tm};
+    
+    let myObj = {name,em,ph};
     
 
     // let myObj_serialized = JSON.stringify(myObj)
@@ -77,6 +75,7 @@ function showOnScreen(myObj)
     btnEdit.textContent = 'EDIT'
     btnEdit.style.borderRadius = '5 px'
     btnEdit.style.border = 'black'
+    li.append(" ",btnEdit)
     btnEdit.addEventListener("click", function(e){
         
                 
@@ -87,37 +86,36 @@ function showOnScreen(myObj)
                     var textField1 = document.getElementById('name')
                     var emailField = document.getElementById('email');
                     var phoneField = document.getElementById('phone');
-                    var dateField = document.getElementById('date');
-                    var timeField = document.getElementById('time');
                     textField1.value = myObj.name;
                     emailField.value =myObj.em;
                     phoneField.value = myObj.ph;
-                    dateField.value = myObj.dt;
-                    timeField.value = myObj.tm;
-                    var newName = textField1.value;
-                    var newEmail = emailField.value;
-                    var newPhone = phoneField.value
-                    let myObj1 = [newName,newEmail,newPhone]
                     document.getElementById('submit').value = 'Edit'      
                     var fm = document.getElementById('form');
-                    fm.addEventListener("submit", myFunction)
-                    function myFunction()
-                    {
-                        axios.put(`https://crudcrud.com/api/37a29ba8081b4c1b8cf538a740a0f730/appointmendDetails/${myObj._id}`, {
+                    fm.onsubmit = (event) => {
+                        event.preventDefault();
+                        var newName = textField1.value;
+                        const newEmail = emailField.value;
+                        const newPhone = phoneField.value;
+                        axios.put(`https://crudcrud.com/api/37a29ba8081b4c1b8cf538a740a0f730/appointmendDetails/${myObj._id}`,{
                             name: newName,
-                            em : newEmail,
-                            ph : newPhone
+                            em: newEmail,
+                            ph: newPhone
                         })
                         .then((response) => {
+                            window.location.reload()
                             console.log(response.data)
                         })
+                        setTimeout
+                        
                     }
+                    
+                    
 
 
                     
                 
     });
-    li.append(" ",btnEdit)
+    
 
 }
 
